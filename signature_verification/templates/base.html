@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>OSV</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"/>
+    
+    <!-- Montserrat font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+</head>
+<body>
+<div class="container">
+    <header class="header" style="margin-top: 0.8em;">
+        <a href="/">
+            <img
+                    src="{{url_for('static', filename='logo.svg')}}"
+                    alt=""
+                    class="logo-top"
+            />
+        </a>
+
+        <nav>
+            <ul class="show-desktop hide-desktop" id="nav">
+                <li><a href="/">{{ email }}</a></li>
+                {% if request.path != '/index' %}
+                    <li><a href="/">Home</a></li>
+                {% endif %}
+                <li><a href="/file_upload">Verify Signatures</a></li>
+                <li><a href="/notifications">Notifications</a></li>
+                <li><a href="/sign_out">Sign Out</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+{% block content %} {% endblock %}
+
+<footer>
+    <div class="footer-container">
+        <div class="container">
+            <div>
+                <a href="/">
+                    <img
+                            src="{{url_for('static', filename='logo_white.svg')}}"
+                            alt=""
+                            class="logo-bottom"
+                    />
+                </a>
+
+                <p class="address">
+                    Plot no: 99,<br/>
+                    Onyx Place,<br/>
+                    Hyderabad,<br/>
+                    India.
+                </p>
+            </div>
+
+            <ul class="footer-links">
+                <li><a href="#">Terms of Service</a></li>
+                <li></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<div class="extra">
+    <div class="container">
+        <span></span>
+    </div>
+</div>
+</body>
+</html>

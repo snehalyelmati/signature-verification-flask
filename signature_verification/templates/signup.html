@@ -1,0 +1,125 @@
+{% extends 'base_auth.html' %} {% block title %}
+<title>Sign Up</title>
+{% endblock %} {% block body %}
+
+<div style="height: 40px;"></div>
+
+<!--<div>-->
+<!--  {% with messages = get_flashed_messages() %}-->
+<!--    {% if messages %}-->
+<!--      {% for message in messages %}-->
+<!--&lt;!&ndash;        <a onclick="M.toast({html: message})" class="btn">Toast!</a>&ndash;&gt;-->
+<!--            <h4>message</h4>-->
+<!--      {% endfor %}-->
+<!--    {% endif %}-->
+<!--  {% endwith %}-->
+<!--</div>-->
+
+<div class="container row">
+  <form action="/signedup" method="post" enctype="multipart/form-data">
+    <div class="card center col s12 m8 l6 offset-l3 z-depth-0">
+      <div class="card-content">
+        <span class="card-title center black-text">
+          <h3>
+            <a href="/login" style="font-weight: 500; color: grey;"
+              >Login &nbsp;&nbsp;&nbsp;</a
+            >
+            <a href="/signup" style="font-weight: 600; color: black;"
+              >Sign Up</a
+            >
+          </h3>
+        </span>
+
+        <br /><br /><br />
+
+        <div class="input-field">
+          <input type="text" name="name" id="name" required />
+          <label class="active" for="name">Name</label>
+        </div>
+
+        <div class="input-field">
+          <textarea
+            name="address"
+            id="address"
+            class="materialize-textarea"
+            required
+          ></textarea>
+          <label class="active" for="address">Address</label>
+        </div>
+        <br />
+
+        <div class="input-field">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="validate"
+            required
+          />
+          <label class="active" for="email">Email</label>
+        </div>
+
+        <div class="input-field">
+          <input type="password" name="password" id="password" required />
+          <label class="active" for="password">Password</label>
+        </div>
+
+        <br /><br /><br /><br />
+
+        <p class="flow-text">Do you represent any company?</p>
+        <p style="padding-top: 1em;">
+          <label>
+            <input
+              name="company"
+              type="radio"
+              id="yes"
+              value=1
+              checked
+            />
+            <span>Yes&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          </label>
+          <label>
+            <input name="company" type="radio" id="no" value=0 />
+            <span>No</span>
+          </label>
+        </p>
+
+        <br />
+
+        <div class="input-field">
+          <input type="text" name="company_name" id="company_name" />
+          <label class="active" for="company_name">Company Name</label>
+        </div>
+
+        <div class="input-field">
+          <input type="number" name="users" id="users" />
+          <label class="active" for="users">Number of users</label>
+        </div>
+
+        <br /><br /><br /><br />
+
+        <p class="flow-text">
+          Upload about 20 genuine and 20 forged signatures of the user/s you
+          wish to verify:
+        </p>
+
+        <div class="file-field input-field">
+          <div class="btn btn-small grey lighten-3 black-text z-depth-0">
+            <span>choose a file</span>
+            <input name="zipfile" type="file" id="zipfile" required />
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" />
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <button class="btn black">
+        <i class="material-icons">chevron_right</i>
+      </button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

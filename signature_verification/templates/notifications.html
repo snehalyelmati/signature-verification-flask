@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+<div
+  class="container"
+  style="font-family: 'Montserrat', sans-serif; text-decoration: none;"
+>
+  <h1 style="margin-bottom: 1.5em; text-align: left; margin-left: 2em;">
+    My Notifications:
+  </h1>
+  <form action="/solved" method="post">
+    <ul id="notifications">
+      {% for notif in notifications %}
+      <li
+        style="
+          padding: 1em;
+          font-size: large;
+          text-align: left;
+          margin-left: 2em;
+        "
+      >
+        <span style="font-size: large;">{{ notif.message }} </span>
+        <input type="hidden" name="message" value="{{ notif.message }}">
+        <input type="submit" value="X" style="padding: 0.5em;" />
+      </li>
+      {% endfor %}
+    </ul>
+  </form>
+</div>
+
+<div style="height: 505.5px;"></div>
+{% endblock %}
